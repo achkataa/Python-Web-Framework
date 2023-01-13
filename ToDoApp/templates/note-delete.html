@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block nav %}
+<li><a href="/">Notes</a></li>
+<li class="right">
+    <a href="{% url 'add_note' %}">Add Note</a>
+    <a href="{% url 'profile' %}">Profile</a>
+</li>
+{% endblock %}
+<!--navigation bar-->
+{% block content %}
+
+<div class="body">
+    <!--headings-->
+    <h1>Delete Note</h1>
+    <!--headings-->
+
+    <!--note delete data form-->
+    <div class="form">
+        <form method="post" action="{% url 'delete_note' note.pk %}">
+            {{ form }}
+            {% csrf_token %}
+            <input type="submit" value="Delete"/>
+        </form>
+    </div>
+    <!--end note delete data form-->
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{#{% block nav %}#}
+{#<li><a href="/">Notes</a></li>#}
+{#<li class="right">#}
+{#    <a href="{% url 'add_note' %}">Add Note</a>#}
+{#    <a href="{% url 'profile' %}">Profile</a>#}
+{#</li>#}
+{#{% endblock %}#}
+
+<!--end navigation bar-->
+{% block page_content %}
+<h1>My Notes</h1>
+
+{% if notes %}
+    {% for note in notes %}
+        <div class="note-container">
+            <h2>{{ note.title }} <img src="{{ note.image }}"/></h2>
+
+            <div class="right">
+                <a class="button details" href="{% url 'note_details' note.pk %}">Details</a>
+                <a class="button edit" href="{% url 'edit_note' note.pk %}">Edit</a>
+                <a class="button delete" href="{% url 'delete_note' note.pk %}">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <h2>There are no notes.</h2>
+{% endif %}
+
+
+
+{% endblock %}

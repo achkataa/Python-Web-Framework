@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for todo in object_list %}
+    <div>
+        <a href="{% url 'todo_details' todo.pk %}">{{ todo.title }}</a>
+    </div>
+{% endfor %}
+
+<div>
+    <a href="{% url 'create_todo' %}"><button>CREATE TODO</button></a>
+</div>
+
+<form action="{% url 'logout_user' %}" method="post">
+    {{ form }}
+    {% csrf_token %}
+     <button>logout</button>
+</form>
+
+<hr>
+{% for category in categories %}
+    <div>
+        {{ category.name }}
+    </div>
+{% endfor %}
+
+</body>
+</html>

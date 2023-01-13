@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block page_content %}
+    <center><h1>Categories</h1></center>
+
+    {% for category in object_list %}
+        <div class="note-container">
+            <h2><a href="{{ category.name }}">{{ category.name }}</a></h2>
+        </div>
+
+    {% endfor %}
+
+
+
+{% endblock %}

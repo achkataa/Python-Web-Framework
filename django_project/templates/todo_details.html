@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    {{ object.title }}
+</div>
+<div>
+    {{ object.description }}
+</div>
+<div>
+    {{ object.category.name }}
+</div>
+
+<div>
+    <a href="{% url 'edit_todo' todo.pk %}"><button>EDIT</button></a>
+</div>
+
+<div>
+    <a href="{% url 'delete_todo' todo.pk %}"><button>DELETE</button></a>
+</div>
+
+</body>
+</html>
